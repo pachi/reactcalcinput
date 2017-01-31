@@ -70,13 +70,13 @@ export default class CalcInput extends React.Component {
     onChange: PropTypes.func
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.currentValue === prevState.lastValidValue &&
-        this.state.isValid === true && prevState.isValid === false) {
-          console.log("Refocusing!");
-          this.entry.focus();
-    }
-  }
+  /* componentDidUpdate(prevProps, prevState) {
+   *   if (this.state.currentValue === prevState.lastValidValue &&
+   *       this.state.isValid === true && prevState.isValid === false) {
+   *         console.log("Get focus back!");
+   *         this.entry.focus();
+   *   }
+   * }*/
 
   render() {
     const { bgonedit, placeholder, label } = this.props;
