@@ -48,8 +48,7 @@ export default class CalcInput extends React.Component {
     this.state = { currentValue: value,
                    lastValidValue: value,
                    isValid: true,
-                   onEdit: false,
-                   regainFocus: false };
+                   onEdit: false };
   }
 
   static defaultProps = {
@@ -69,6 +68,14 @@ export default class CalcInput extends React.Component {
     precision: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     glyphicon: PropTypes.string,
     onChange: PropTypes.func
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.currentValue === prevState.lastValidValue &&
+        this.state.isValid === true && prevState.isValid === false) {
+          console.log("Refocusing!");
+          this.entry.focus();
+    }
   }
 
   render() {
